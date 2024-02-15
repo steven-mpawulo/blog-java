@@ -12,33 +12,15 @@ public class Article {
     private Long Id;
 
     private String content;
-    private String author;
-
-    private Long authorId;
 
     protected Article() {}
 
     public Article(String content, String author, Long authorId) {
-        this.author = author;
-        this.authorId = authorId;
+
         this.content = content;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
 
-    public String getAuthor() {
-        return this.author;
-    }
-
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
-    }
-
-    public Long getAuthorId() {
-        return this.authorId;
-    }
 
     public void setContent(String content) {
         this.content = content;
@@ -53,8 +35,6 @@ public class Article {
         return "Article{" +
                 "Id=" + Id +
                 ", content='" + content + '\'' +
-                ", author='" + author + '\'' +
-                ", authorId=" + authorId +
                 '}';
     }
 }
