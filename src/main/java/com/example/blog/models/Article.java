@@ -1,9 +1,6 @@
 package com.example.blog.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Article {
@@ -12,15 +9,33 @@ public class Article {
     private Long Id;
 
     private String content;
+    @ManyToOne
+    private Author author;
 
     protected Article() {}
 
-    public Article(String content, String author, Long authorId) {
+    public Article(String content, Author author) {
 
         this.content = content;
+        this.author = author;
     }
 
 
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     public void setContent(String content) {
         this.content = content;
