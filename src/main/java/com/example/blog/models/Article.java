@@ -1,5 +1,6 @@
 package com.example.blog.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class Article {
 
     private String content;
     @ManyToOne
+    @JsonIgnore
     private Author author;
 
     protected Article() {}
