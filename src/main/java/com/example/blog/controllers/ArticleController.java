@@ -60,4 +60,16 @@ public class ArticleController {
 
 
     }
+
+    @DeleteMapping("/articles/{articleId}")
+    public void deleteArticle(@PathVariable Long articleId){
+       Optional<Article> article =  articleRepository.findById(articleId);
+
+       if (article.isPresent()) {
+           articleRepository.deleteById(articleId);
+       } else {
+           throw new NoArticleFoundException(HttpStatus.NOT_FOUND, "article already deleted");
+       }
+    }
+
 }
